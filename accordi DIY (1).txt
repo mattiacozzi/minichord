@@ -1,0 +1,112 @@
+Accordi DIY
+
+--------------------------------------------------------------
+Un po' di teoria (per divertirci, la parte utile è alla fine).
+--------------------------------------------------------------
+Prendiamo una tonalità di riferimento: Do (C)
+
+Gradi:
+																								Distanza dallla fondamentale
+I		Do(C)		"Tonica"	-->	Definisce la tonalità (nel nostro caso Do)					0				
+II		Re(D)																					+2 semitoni
+III		Mi(E)		"Modale"	-->	Definisce il modo (maggiore/minore). 						Si distingue maggiore=+4 semitoni e minore=+3 semitoni
+IV		Fa(F)																					+5 semitoni
+V		Sol(G)		"Dominante"	-->	Ci azzecca sempre (veniva chiamata Quinta Giusta)			+7 semitoni
+VI		La(A)																					+9 semitoni
+VII		Si(B)		"Sensibile" -->	Nota che crea "attesa/tensione"								Maggiore=+11 semitoni, Minore=+10 semitoni
+
+Tipicamente, gli accordi si realizzano usando I,III, V e VII grado. I gradi II, IV e VI, possono essere
+sostituiti o aggiunti agli accordi realizzati con I,III, V e VII.
+
+Di qui in poi i gradi si ripetono, ma tavolta si trovano frequenti alcuni gradi aggiuntivi negli accordi:
+VIII	Do(C)			+12
+IX		Re(D)			+14
+XI		Fa(F)			+17
+XIII	La(A)			+21
+
+
+Provando a costruire triadi (accordi di 3 note ad una terza di distanza l'uno dall'altro) in tonalità di Do, si spiega come nascono i principali accordi:
+Nota: la fondamentale è sempre la prima nota dell'accordo (indipendentemente dalla tonalità in cui siamo).
+
+										Intervalli relativi
+Gradi sulla scala						alla fondamentale
+di Do (tonica)			Note			dell'accordo  			Modo risultate
+
+I-III-V					Do-Mi-Sol		+4/+7					Maggiore 	(allegro) La trovi scritta con solo il nome della tonica. Nel nostro caso Do (C).
+II-IV-VI				Re-Fa-La		+3/+7					Minore		(triste) Lo trovi scritto con la tonica seguita da "m". Nel nostro caso Rem(Dm).
+III-V-VII				Mi-Sol-Si		+3/+7					Minore
+IV-VI-I					Fa-La-Do		+4/+7					Maggiore
+V-VII-II				Sol-Si-Re		+4/+7					Maggiore
+VI-I-III				La-Do-Mi		+3/+7					Minore 		(sul sesto grado si costruisce la cosiddetta "scala relativa minore", ci torniamo dopo, teniamolo a mente).
+VII-II-IV-VI			Si-Re-Fa		+3/+6					Diminuito	(tristissimo, quasi depresso, è l'unico che non becca la quinta "Giusta", ma la diminuisce di un semitorno, da cui il nome). Si scrive dim, ovvero Sidim (Bdim).
+
+Relativa minore: è la scala costruita sul sesto grado, suonando le note una dopo l'altra. Nel nostro esempio di Do maggiore, abbiamo la relativa minore in La, ottenendo la scala La-Si-Do-Re-Mi-Fa-Sol-La.
+Questa sequenza (scala), confrontanta con le altre sequenze più bruttarelle costruite sugli altri gradi, ci piace, e quindi gli abbiamo dato il nome di "Modo minore".
+Chiaramente la scala di Do maggiore suona bene con la sua "relativa minore" (La), ma farà cacare (senza un appropriato contesto) se associata al suo "modo" minore (Do minore, che per incisio è Do-Re-Mib-Fa-Sol-Lab-Sib).
+In realtà abbiamo diverse scale minori (costruite sui vari gradi), ma per il momento ce ne strafottiamo.
+
+
+Evviva, abbiamo i nostri primi 3 accordi da mettere nel programmino:
+
+Maggiore 	--> 	+4/+7
+Minore 		-->		+3/+7
+Diminuito	-->		+3/+6
+
+
+Abbiamo ancora 5 slot di memoria da riempire, quindi andiamo avanti, e spariamoci gli accordi di settimna.
+Gli accordi di settima sono gli accordi con 4 note e si costruiscono sempre suonandone una sì e una no, sulla scala di Do. Da questi nascono altri accordi:
+Nota: Ma perchè una si e una no? perchè, se non le inseriamo in un "contesto" armonico (tipo un brano musicale) le note vicine fra loro non hanno nulla in comune (a livello di armoniche).
+In generale, ci fanno schifo, ovvero sembra che hai sbagliato nota (o che il gatto stia camminando sulla tastiera).
+
+
+											Intervalli relativi
+Gradi sulla scala							alla fondamentale
+di Do (tonica)			Note				dell'accordo  			Accordo risultate
+
+I-III-V-VII				Do-Mi-Sol-Si		+4/+7/+11				Settima maggiore. 		La trovi scritta come maj7 oppure 7+. Nel nostro caso quindi Domaj7 (Cmaj7) oppure Do7+ (C7+), indifferentemente.
+II-IV-VI				Re-Fa-La-Do			+3/+7/+10				Settima minore. 		Scritta come m7 oppure 7-. Es: Rem7 (Dm7) oppure Re7- (D7-).
+III-V-VII				Mi-Sol-Si-Re		+3/+7/+10				Settima minore.
+IV-VI-I					Fa-La-Do-Mi			+4/+7/+11				Settima maggiore.
+V-VII-II				Sol-Si-Re-Fa		+4/+7/+10				Settima di dominante.	Si tratta di un accordo Maggiore (+4/+7), con la settima minore (+10), e si scrive semplicemente come 7, ovvero Sol7 (G7).Ci torniamo.
+VI-I-III				La-Do-Mi-Si			+3/+7/+11				Settima minore.			
+VII-II-IV-VI			Si-Re-Fa-La			+3/+6/+10				Settima semi-diminuita.		Settima minore con quinta diminuita. Tristezza a palate, al settimo grado gli va sempre male, per questo si chiama sensibile (?). Scirtto Ø, SiØ (BØ).
+
+Settima di dominante: piace una cifra a tutti. Ma se fai una settima di dominante (Sol7), sei costretto a far seguire (in gergo, "risolvere verso")  sul primo grado maggiore (Do), altrimenti Mozart si offende tantissimo.
+
+Abbiamo altre 4 frecce al nostro arco
+
+Settima maggiore		-->		+4/+7/+11	
+Settima minore			-->		+3/+7/+10
+Settima di dominante	-->		+4/+7/+10
+Settima semi-diminuita	-->		+3/+6/+10
+
+Ce ne resta uno, che ci mettiamo? Probabilmente un'altro tipo di settimna, che non si costruscie sulla scala maggiore come le altre, ovvero la settima diminuita.
+Questa settima si costruisce infatti sul settimo grado della scala minore "armonica" (una delle possibili scale minori), in cui il settimo grado "scende" di un ulteriore semitono 
+
+Per la tonalità di Do, questo corrisponde a Dodim7 (Cdim7) ovvero:
+
+Do-Mib-Solb-Sibb		+3/+6/+9		Settima diminuita.		A questo punto si capisce perchè Si-Re-Fa-La è una "semi-diminuita". Perchè abbiamo diminuito solo il quinto grado, ma nell'accordo diminuito diminuiamo anche il settimo.
+
+Nota: Sibb (Si doppio bemolle) corrisponde ad un "La" (sono la stessa identica nota). Tuttavia la differenza "concettuale" viene spesso sottolineata dai compositori negli spartiti, per comunicare meglio "l'intenzione" che si nasconde dietro la nota.
+
+Infine, solo per equalizzare al meglio l'intensità di tutti gli accordi, suggerisco di aggiungere nelle triadi l'ottava. In questo modo, tutti gli accordi avranno 4 note, e presenteranno grossomodo lo stesso volume all'ascoltatore.
+
+Ricapitolando:
+
+Maggiore 				--> 	+4/+7/+12
+Minore 					-->		+3/+7/+12
+Diminuito				-->		+3/+6/+12
+Settima maggiore		-->		+4/+7/+11	
+Settima minore			-->		+3/+7/+10
+Settima di dominante	-->		+4/+7/+10
+Settima semi-diminuita	-->		+3/+6/+10
+Settima diminuita		-->		+3/+6/+9
+
+
+
+
+
+
+
+
+

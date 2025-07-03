@@ -1,0 +1,259 @@
+Controlli richiesti:
+
+12 tasti per accordi maggiori
+12 tasti per accordi minori
+12 tasti per accordi di settima
+1 tasto "Hold"
+1 tasto PANIC
+1 interruttore ON/OFF
+
+39 tasti
+
+8 rows x 5 columns
+
+
+
+
+
+
+https://it.rs-online.com/web/c/interruttori-e-pulsanti/interruttori-a-pulsante-e-componenti/interruttori-a-pulsante/
+
+
+
+1 selettore di ottava
+
+1 selettore di canale
+
+1 selettore di "velocity" --> forza con cui viene premuto il tasto (controllare questa informazione)
+Ogni potenziometro --> 1 pin Analogico
+
+
+
+
+
+Note in MIDI
+http://www.phys.unsw.edu.au/jw/notes.html
+Tra una ottava e l'altra c'è una differenza di 12 (corrisponde a 12 semitoni).
+Do4 = 60
+Do#4 = 61
+Re4 = 62
+Do3 = 48
+
+
+ACCORDI
+Combo tasti: https://www.youtube.com/watch?v=C8fHvffnfiY
+Accordo di settima maggiore = tasto maggiore + tasto settima
+nota  ==  nota + 4  ==  nota + 7  ==  nota + 11
+Accordo di settima minore = tasto minore + tasto settima
+????
+Accordo diminuito = tasto maggiore + tasto minore
+????
+Accordo aumentato = tutti e tre i tasti
+?????
+
+
+ACCORDI IN MIDI
+Accordo maggiore in MIDI
+nota  ==  nota + 4  ==  nota + 7
+
+          //ACCORDO MAGGIORE ON
+          noteOn(midiCh, note + i, 127);  // channel, note, velocity
+          MidiUSB.flush();
+          noteOn(midiCh, note + 4 + i, 127);  // channel, note, velocity
+          MidiUSB.flush();
+          noteOn(midiCh, note + 7 + i, 127);  // channel, note, velocity
+          MidiUSB.flush();
+
+          //ACCORDO MAGGIORE OFF
+          noteOn(midiCh, note + i, 0);  // channel, note, velocity
+          MidiUSB.flush();
+          noteOn(midiCh, note + 4 + i, 0);  // channel, note, velocity
+          MidiUSB.flush();
+          noteOn(midiCh, note + 7 + i, 0);  // channel, note, velocity
+          MidiUSB.flush();
+
+
+Accordo minore in MIDI
+nota  ==  nota + 3  ==  nota + 7
+
+          //ACCORDO MINORE ON
+          noteOn(midiCh, note + i, 127);  // channel, note, velocity
+          MidiUSB.flush();
+          noteOn(midiCh, note + 3 + i, 127);  // channel, note, velocity
+          MidiUSB.flush();
+          noteOn(midiCh, note + 7 + i, 127);  // channel, note, velocity
+          MidiUSB.flush();
+
+          //ACCORDO MINORE OFF
+          noteOn(midiCh, note + i, 0);  // channel, note, velocity
+          MidiUSB.flush();
+          noteOn(midiCh, note + 3 + i, 0);  // channel, note, velocity
+          MidiUSB.flush();
+          noteOn(midiCh, note + 7 + i, 0);  // channel, note, velocity
+          MidiUSB.flush();
+
+
+Accordo di settima in MIDI
+nota  ==  nota + 4  ==  nota + 7  ==  nota + 10
+
+          //ACCORDO SETTIMA ON
+          noteOn(midiCh, note + i, 127);  // channel, note, velocity
+          MidiUSB.flush();
+          noteOn(midiCh, note + 4 + i, 127);  // channel, note, velocity
+          MidiUSB.flush();
+          noteOn(midiCh, note + 7 + i, 127);  // channel, note, velocity
+          MidiUSB.flush();
+          noteOn(midiCh, note + 10 + i, 127);  // channel, note, velocity
+          MidiUSB.flush();
+
+          //ACCORDO SETTIMA OFF
+          noteOn(midiCh, note + i, 0);  // channel, note, velocity
+          MidiUSB.flush();
+          noteOn(midiCh, note + 4 + i, 0);  // channel, note, velocity
+          MidiUSB.flush();
+          noteOn(midiCh, note + 7 + i, 0);  // channel, note, velocity
+          MidiUSB.flush();
+          noteOn(midiCh, note + 10 + i, 0);  // channel, note, velocity
+          MidiUSB.flush();
+
+ACCORDI PROPOSTI DA FILIPPO!
+Maggiore 				--> 	+4/+7/+12
+Minore 					-->		+3/+7/+12
+Diminuito				-->		+3/+6/+12
+Settima maggiore		-->		+4/+7/+11
+Settima minore			-->		+3/+7/+10
+Settima di dominante	-->		+4/+7/+10
+Settima semi-diminuita	-->		+3/+6/+10
+Settima diminuita		-->		+3/+6/+9
+
+
+
+
+MIDI CC
+69	Hold 2	≤63 off, ≥64 on	Another way to “hold notes” (see MIDI CC 64 and MIDI CC 66). However notes fade out according to their release parameter rather than when the pedal is released.
+
+Per tenere la nota: https://anotherproducer.com/online-tools-for-musicians/midi-cc-list/
+
+
+
+VERSIONI
+v 1.0: 4 bottoni funzionanti, 1 potenziometro che viene letto ma non è associato a nessun comando midi.
+v 1.1: 4+1 bottoni, selezione del canale con un bottone, potenziometro come sopra.
+v 1.2: LCD con UNO, con due pulsanti che incrementano valori mostrati + welcome
+v 1.3: LCD con UNO, con 74HC595N
+        Libreria: https://www.arduino.cc/reference/en/libraries/liquidcrystal_74hc595/
+        FINITO modulo LCD
+
+        DA RIFARE IL CODICE!! DIOCANE
+v 1.4 Encoders con UNO, serial monitor per controllo output. Ricordarsi di collegare i pin A e B degli encoders a terra con dei condensatori da 100 nF (vedi qui, commenti: https://www.candrian.gr/index.php/3-pin-rotary-encoder-how-to/). Nella guida usa resistenze esterne, funziona bene anche con il pullup interno della scheda
+        FINITO modulo encoders con click
+
+Inizio lavoro sui milletasti
+v 1.5: una linea di 12 pulsanti, 1 Potenziometro, su UNO. Codice già pronto per più di una linea. Mancano comandi midi
+v 1.6: una linea di 12 pulsanti, 1 potenziometro, su Pro Micro. I pulsanti fanno accordi maggiori. DOPO
+v 1.7: Encoder, bottoni encoder e schermo funzionanti, su Pro Micro.
+        FINITO E FUNZIONANTE
+v 1.8: una linea di 12 bottoni
+v 1.9: tre linee di 5 bottoni ognuna
+v 2.0: aggiungere funzione "hold"
+
+
+
+
+BOTTONI E VALORI ANALOGICI LETTI DAL PIN, con 12 resistori da 220 Ohm con PRO MICRO
+00 -> 1023
+01 -> 18
+02 -> 520
+03 -> 687
+04 -> 771
+05 -> 821
+06 -> 855
+07 -> 879
+08 -> 897
+09 -> 911
+10 -> 922
+11 -> 932
+12 -> 939
+
+
+BOTTONI E VALORI ANALOGICI LETTI DAL PIN, con 12 resistori da 220 Ohm con PRO MICRO
+00 -> 1023
+01 -> 1423
+02 -> 5193
+03 -> 6893
+04 -> 7723
+05 -> 8223
+06 -> 8553
+07 -> 8793
+08 -> 8983
+09 -> 9123
+10 -> 9233
+11 -> 9323
+12 -> 9403
+
+Inserire questi valori in una matrice iniziale per eseguire un ciclo e gestire le note
+
+
+
+ASSEGNAZIONE PIN ARDUINO:
+2
+3
+4 74HC595N --> ROWS (8)
+5
+6
+7 74HC595N --> COLUMNS (5), Panic (1)
+8
+9
+10  74HC595N --> LCD (6), Interruttore generale (1), Hold (1)
+16
+14
+15  74HC595N --> Encoder Chan (2 o 3), Encoder Oct (2 o 3)
+A0  Potenziometro Velocity
+A1  Potenziometro gratis (fare una versione che invia comandi cc funzionanti con un softsynth)
+A2  Potenziometro gratis
+A3  Potenziometro gratis
+
+
+
+
+ENCODER
+https://howtomechatronics.com/tutorials/arduino/rotary-encoder-works-use-arduino/
+https://lastminuteengineers.com/rotary-encoder-arduino-tutorial/
+Un encoder rotativo a scatti ha 5 pin:
+VCC
+GND
+Button pin (se può essere premuto)
+Signal A
+Signal B    questi ultimi due vengono usati per stabilire il verso e l'entità della rotazione
+
+
+QUALE ARDUINO?
+https://www.youtube.com/watch?v=C-BNKf8v7Ys
+1. Se si usa un Arduino con board ATMEGA32U4 ((Pro Micro, Micro, Leonardo) no problema, è MIDI Class Compliant.
+Questi dispositivi usano la libreria MIDIUSB.h
+Pro Micro ha ? ?pin I/O digitali
+
+https://learn.sparkfun.com/tutorials/pro-micro--fio-v3-hookup-guide/all
+https://learn.sparkfun.com/tutorials/qwiic-pro-micro-usb-c-atmega32u4-hookup-guide
+
+2. Arduino UNO usa ATMEGA328P e ha uscita SERIAL, il segnale va convertito in MIDI. Per essere riconosciuto come midi su Linux: SerialMidiBridge https://github.com/RuudMulder/SerialMidiBridge
+Questi dispositivi usano la libreria MIDI.h
+
+
+
+
+
+BOTTONI E VALORI ANALOGICI LETTI DAL PIN, con 12 resistori da 220 Ohm con UNO
+00 -> 1023
+01 -> 3
+02 -> 511
+03 -> 681
+04 -> 767
+05 -> 818
+06 -> 852
+07 -> 877
+08 -> 895
+09 -> 910
+10 -> 921
+11 -> 930
+12 -> 939
