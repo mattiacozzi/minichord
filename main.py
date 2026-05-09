@@ -1,3 +1,4 @@
+import os
 import sys
 import mido                                     #MIDI
 from PyQt6 import QtWidgets, uic, QtGui, QtCore #UI
@@ -5,13 +6,22 @@ from datetime import datetime                   #Timestamps
 
 # apertura porta virtuale con il nome del programma
 out_port = mido.open_output('MiniChord di Alice', virtual=True)
+# percorso relativo
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 # creo una classe che eredita le proprietà di QMainWindow
 class MiniChord(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
+        # recupero il percorso dell'interfaccia
+        ui_path = resource_path("interfaccia.ui")
         # carico il file dell'interfaccia
-        uic.loadUi("interfaccia.ui", self)
+        uic.loadUi(ui_path, self)
         # dict degli accordi impostati
         self.accordi = {
             'maggiore': {   # default
@@ -121,7 +131,7 @@ class MiniChord(QtWidgets.QMainWindow):
         # lista in cui salvare una registrazione (fa da buffer)
         self.recorded_data = []
         # welcome text
-        self.histLabel.setText("Ciao Alice, benvenuta nel tuo MiniChord!")
+        self.histLabel.setText("Ciao, benvenuta nel tuo MiniChord!")
 
 #|-------------|
 #| INTERFACCIA |
