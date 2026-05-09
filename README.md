@@ -51,7 +51,19 @@ Su Linux, l'ho testato usando [QjackCtl](https://github.com/rncbc/qjackctl) e [Q
 
 ## Troubleshooting
 
-Su Linux, sono necessari questi pacchetti:
+Dopo aver scaricato il binario dalle *Releases*, rendere il file eseguibile con:
+
+```bash
+chmod +x MiniChord
+```
+
+e poi lanciarlo con:
+
+```bash
+./MiniChord
+```
+
+Su Linux, sono inoltre necessari questi pacchetti:
 
 ```bash
 # esempio di installazione per Debian e derivate
