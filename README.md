@@ -2,6 +2,8 @@
 
 (diverso da [questo](https://github.com/BenjaminPoilve/minichord), che è meraviglioso)
 
+![Screenshot](screenshot.png)
+
 È una piccola app in Python che genera accordi o singole note a partire da un input da tastiera.
 
 Di default, le 12 note della scala cromatica sono suonate con i tasti della seconda riga delle lettere della tastiera:
@@ -46,8 +48,6 @@ Su Linux, l'ho testato usando [QjackCtl](https://github.com/rncbc/qjackctl) e [Q
 1. Avvio il MiniChord
 2. Avvio Qsynth
 3. Avvio QjackCtl e controllo il collegamento tra il MiniChord e Qsynth nel diagramma 
-
-![Screenshot](screenshot.png)
 
 ## Troubleshooting
 
